@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "gulp && node ./bin/www"
+    "start": "gulp && node ./bin/www",
+	 "test": "tape test/*-test.js | tap-spec"
   },
   "dependencies": {
     "body-parser": "~1.16.0",
@@ -19,5 +20,7 @@
     "gulp": "^3.9.1",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0"
+    "tap-spec": "^4.1.1",
+    "tape": "^4.6.3"
   }
 }
