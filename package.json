@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "gulp && node ./bin/www",
-	 "test": "tape test/*-test.js | tap-spec"
+    "test": "tape test/*-test.js | tap-spec"
   },
   "dependencies": {
     "body-parser": "~1.16.0",
@@ -13,13 +13,15 @@
     "express": "~4.14.1",
     "materialize-css": "^0.98.0",
     "morgan": "~1.7.0",
+    "mysql": "^2.13.0",
     "pug": "~2.0.0-beta10",
+    "sequelize": "^3.30.2",
     "serve-favicon": "~2.3.2"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-rename": "^1.2.2",
-    "gulp-sass": "^3.1.0"
+    "gulp-sass": "^3.1.0",
     "tap-spec": "^4.1.1",
     "tape": "^4.6.3"
   }
