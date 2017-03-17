@@ -6,11 +6,11 @@ html
     title Preguntas
     // CSS
     link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
-    link(rel='stylesheet', href='/stylesheets/app.css')
+    link(rel='stylesheet', href='/stylesheets/app.css' media='screen,projection')
   body
     nav.light-blue.lighten-1(role='navigation')
       .nav-wrapper.container
-        a#logo-container.brand-logo(href='#') Preguntas
+        a#logo-container.brand-logo(href='/') Preguntas
     block content
 
     footer.page-footer.teal
@@ -31,5 +31,7 @@ html
       |
       .footer-copyright
         .container
-          | Made by 
+          | Made by
           a.teal-text.text-lighten-3(href='http://materializecss.com') Materialize
+    script(src='https://code.jquery.com/jquery-3.1.1.min.js' integrity='sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=' crossorigin='anonymous')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js')
