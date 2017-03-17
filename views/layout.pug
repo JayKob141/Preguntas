@@ -1,7 +1,35 @@
 doctype html
 html
   head
-    title= title
+    meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1.0')
+    title Preguntas
+    // CSS
+    link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
     link(rel='stylesheet', href='/stylesheets/app.css')
   body
+    nav.light-blue.lighten-1(role='navigation')
+      .nav-wrapper.container
+        a#logo-container.brand-logo(href='#') Preguntas
     block content
+
+    footer.page-footer.teal
+      .container
+          .row
+            .col.l6.s12
+              h5.white-text Proyecto Preguntas
+              |
+              p.grey-text.text-lighten-4
+                | Me invent&eacute; este proyecto para aprender NodeJS y otras tecnolog&iacute;as (sass, gulp, express, materialize, etc).
+            |
+            .col.l3.s12
+              h5.white-text Contacto
+              |
+              ul
+                li
+                  a.white-text(href='https://github.com/JayKob141/Preguntas') Proyecto en Github
+      |
+      .footer-copyright
+        .container
+          | Made by 
+          a.teal-text.text-lighten-3(href='http://materializecss.com') Materialize

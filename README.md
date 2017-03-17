@@ -1,6 +1,6 @@
 # Preguntas
 
-App Web para postear preguntas con múltiples opciones.
+App Web para postear y contestar preguntas de opción múltiple.
 
 ## Configuración
 

@@ -1,5 +1,43 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  #index-banner.section.no-pad-bot
+    .container
+        br
+        br
+        |
+        h1.header.center.teal-text.text-lighten-2 Preguntas
+        |
+        .row.center
+          h5.header.col.s12.light Realiza preguntas de opci&oacute;n multiple y responde las preguntas de otras personas.
+        |
+        .row.center
+          a#download-button.btn-large.waves-effect.waves-light.teal.lighten-1(href='http://materializecss.com/getting-started.html') Entrar
+        |
+        br
+        br
+    .container
+      .section
+          .row
+            .col.s12.l6.m6
+              .icon-block
+                h2.center.light-blue-text
+                  i.material-icons group
+                |
+                h5.center Realiza Preguntas
+                |
+                p.light
+                  | Crea preguntas con respuestas multiples para que puedan ser contestadas por los usuarios.
+            |
+            .col.s12.l6.m6
+              .icon-block
+                h2.center.light-blue-text
+                  i.material-icons group
+                |
+                h5.center Contesta Preguntas
+                |
+                p.light
+                  | Contestando preguntas de otros usuarios, refuerzas el conocimiento sobre algun tema en espec&iacute;fico.
+      |
+      br
+      br
