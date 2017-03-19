@@ -14,13 +14,31 @@ html
         ul.right
           if authed
             li
-                a(href='#')
-                  i.large.material-icons perm_identity
+              a(href='#')
+                i.large.material-icons perm_identity
             li
-                a(href='/logout') Salir
+              a(href='/logout') Salir
+
           else
             li
-              a(href='/login') Inicia Sesion
+              form(method='POST', action='/login')
+                  li
+                    label.lables-navigation(for='nickname') Nickname:
+                  li
+                    input(type='text', name='nickname')
+                  |
+                  li
+                    label.lables-navigation(for='passwprd') Contrase&ntilde;a:
+                  li
+                    input(type='password', name='password')
+                  |
+                  li
+                    button.btn.waves-effect.waves-light.teal.lighten-1(type='Submit') Log In
+              |
+              li
+                a(href='/signup') Registrate
+
+
 
     block content
 
