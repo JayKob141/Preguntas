@@ -20,3 +20,8 @@ module.exports.isNotLoggedIn = function (req, res, next) {
     // if they aren't redirect them to the home page
     res.redirect('/preguntas');
 }
+
+module.exports.locals_variables = function(req, res, next) {
+  res.locals.authed = req.isAuthenticated();
+  return next();
+}

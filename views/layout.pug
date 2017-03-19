@@ -12,9 +12,15 @@ html
       .nav-wrapper.container
         a#logo-container.brand-logo(href='/') Preguntas
         ul.right
-          li
-              a(href='#')
-                i.large.material-icons perm_identity
+          if authed
+            li
+                a(href='#')
+                  i.large.material-icons perm_identity
+            li
+                a(href='/logout') Salir
+          else
+            li
+              a(href='/login') Inicia Sesion
 
     block content
 
@@ -36,7 +42,7 @@ html
       |
       .footer-copyright
         .container
-          | Made by 
+          | Made by
           a.teal-text.text-lighten-3(href='http://materializecss.com') Materialize
     script(src='https://code.jquery.com/jquery-3.1.1.min.js' integrity='sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=' crossorigin='anonymous')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js')

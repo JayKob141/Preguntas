@@ -9,11 +9,13 @@ var session = require('express-session');
 var middleware = require('./config/middleware.js');
 var passportConfig = require('./config/passport.js')(passport);
 var flash = require('connect-flash');
+var locals_variables = middleware.locals_variables;
 
 var index = require('./routes/index');
 var users = require('./routes/users');
 var login = require('./routes/login');
 var preguntas = require('./routes/preguntas');
+var logout = require('./routes/logout');
 
 var app = express();
 
@@ -35,10 +37,11 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
-app.use('/', index);
-app.use('/users', users);
-app.use('/login',  middleware.isNotLoggedIn,  login);
-app.use('/preguntas', preguntas);
+app.use('/', locals_variables,index);
+app.use('/users',  locals_variables, users);
+app.use('/login',  middleware.isNotLoggedIn,   locals_variables, login);
+app.use('/preguntas',  locals_variables, preguntas);
+app.use('/logout', middleware.isLoggedIn, locals_variables, logout);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
