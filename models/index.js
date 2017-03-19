@@ -10,8 +10,12 @@ var sequelize = new Sequelize( process.env.DB_NAME, process.env.DB_USER, process
 });
 
 module.exports.User = sequelize.define('Usuarios', {
-  idUsuario: Sequelize.INTEGER,
+  idUsuario: { type: Sequelize.INTEGER, primaryKey: true },
   nickname: Sequelize.STRING,
   password: Sequelize.STRING,
   fecha_registro: Sequelize.DATEONLY
+},{
+  timestamps: false,
+  freezeTableName: true,
+  tableName: 'Usuarios',
 });

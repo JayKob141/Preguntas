@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1 Iniciar Sesion
+
+  if message
+    p= message
+  // Login form
+  form(method='POST' action='/login')
+    label(for='nickname') Nickname:
+    input(type='text', name='nickname')
+    label(for='password') Password:
+    input(type='password', name='password')
+    button(type='submit') Ingresar
