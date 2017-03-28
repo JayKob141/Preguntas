@@ -38,8 +38,28 @@ var Pregunta = sequelize.define('Preguntas', {
   tableName: 'Preguntas',
 });
 
+var OpcionPregunta = sequelize.define('OpcionesPreguntas', {
+  idOpcion: { type: Sequelize.INTEGER, primaryKey: true },
+  descripcion: Sequelize.STRING,
+  correcta: Sequelize.INTEGER,
+  preguntaId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Pregunta',
+          key: 'idPregunta'
+        }
+      }
+},{
+  timestamps: false,
+  freezeTableName: true,
+  tableName: 'OpcionesPreguntas',
+});
+
 Pregunta.belongsTo(User, {foreignKey:'userId'});
 User.hasMany(Pregunta, {foreignKey:'userId'});
+OpcionPregunta.belongsTo(Pregunta,{foreignKey:'preguntaId'});
+Pregunta.hasMany(OpcionPregunta,{foreignKey:'preguntaId'});
 
 module.exports.User = User;
 module.exports.Pregunta = Pregunta;
+module.exports.OpcionPregunta = OpcionPregunta;

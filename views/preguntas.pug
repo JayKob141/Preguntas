@@ -24,10 +24,9 @@ block content
                       span.right.grey-text.text-darken-4 by #{pregunta.Usuario.nickname}
                       span.card-title.activator.grey-text.text-darken-4=pregunta.pregunta
                       |
-                      p
-                        | a) Opcion 1.
-                        | b) Opcion 2.
-                        | c) Opcion 3.
+                      ol(type='1')
+                        each opcion in pregunta.OpcionesPreguntas
+                          li #{opcion.descripcion}
                     |
                     .card-action
                       a(href='#') Contestar

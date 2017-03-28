@@ -3,6 +3,7 @@ var test = require('tape')
 var models = require('../models');
 var User = models.User;
 var Pregunta = models.Pregunta;
+var OpcionPregunta = models.OpcionPregunta;
 
 test('De todos los usuarios: Sus preguntas', function(t) {
 	User.findAll({
@@ -17,10 +18,10 @@ test('De todos los usuarios: Sus preguntas', function(t) {
 
 });
 
-test('Todas las Preguntas con usuario', function(t) {
+test('Todas las Preguntas con usuario y sus opciones', function(t) {
 	Pregunta.findAll({
   		attributes: ['pregunta'],
-			include: [User]
+			include: [{model:User}, {model:OpcionPregunta}]
 	}).then( function(preguntas) {
 		//for(var p in preguntas)
 			//console.log(p.getDataValue('pregunta'));
