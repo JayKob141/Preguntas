@@ -9,7 +9,7 @@ var sequelize = new Sequelize( process.env.DB_NAME, process.env.DB_USER, process
   }
 });
 
-module.exports.User = sequelize.define('Usuarios', {
+var User = sequelize.define('Usuarios', {
   idUsuario: { type: Sequelize.INTEGER, primaryKey: true },
   nickname: Sequelize.STRING,
   password: Sequelize.STRING,
@@ -19,3 +19,27 @@ module.exports.User = sequelize.define('Usuarios', {
   freezeTableName: true,
   tableName: 'Usuarios',
 });
+
+
+var Pregunta = sequelize.define('Preguntas', {
+  idPregunta: { type: Sequelize.INTEGER, primaryKey: true },
+  pregunta: Sequelize.STRING,
+  fecha: Sequelize.DATEONLY,
+  userId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Usuarios',
+          key: 'idUsuario'
+        }
+      }
+},{
+  timestamps: false,
+  freezeTableName: true,
+  tableName: 'Preguntas',
+});
+
+Pregunta.belongsTo(User, {foreignKey:'userId'});
+User.hasMany(Pregunta, {foreignKey:'userId'});
+
+module.exports.User = User;
+module.exports.Pregunta = Pregunta;
