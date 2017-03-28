@@ -14,13 +14,14 @@ block content
   .container
     .section
         .row
-          for pregunta in preguntas
+          each pregunta in preguntas
             .col.s12.m6.l4
                 .card
                     .card-image
-                      img(src=pregunta.imgurl)
+                      img(src='http://materializecss.com/images/office.jpg')
                     |
                     .card-content
+                      span.right.grey-text.text-darken-4 by #{pregunta.Usuario.nickname}
                       span.card-title.activator.grey-text.text-darken-4=pregunta.pregunta
                       |
                       p
