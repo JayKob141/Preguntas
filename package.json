@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "gulp && node ./bin/www",
-    "test": "tape test/*-test.js | tap-spec"
+    "test": "tape test/*-test.js | tap-spec",
+    "queryusers": "tape test/db_queries/usuarios-test.js | tap-spec"
   },
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",

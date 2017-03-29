@@ -5,7 +5,7 @@ var User = models.User;
 var Pregunta = models.Pregunta;
 var OpcionPregunta = models.OpcionPregunta;
 
-test('De todos los usuarios: Sus preguntas', function(t) {
+test('Todos los usuarios junto con sus preguntas', function(t) {
 	User.findAll({
   		attributes: ['nickname'],
 			include: [Pregunta]
@@ -15,25 +15,10 @@ test('De todos los usuarios: Sus preguntas', function(t) {
 	}).catch(function(err){
 		 t.end(err);
 	});
-
 });
 
-test('Busca un usuario por id', function(t) {
-	User.findOne({
-		  where:{idUsuario:1},
-			include: [Pregunta]
-	}).then( function(nicknames) {
-		console.log(JSON.stringify(nicknames));
-		t.end();
-	}).catch(function(err){
-		 t.end(err);
-	});
-
-});
-
-
-test('Todas las Preguntas con usuario y sus opciones', function(t) {
-	Pregunta.findAll({
+Pregunta.findAll({
+test('Todas las Preguntas con su usuario y sus opciones', function(t) {
   		attributes: ['pregunta'],
 			include: [{model:User}, {model:OpcionPregunta}]
 	}).then( function(preguntas) {
