@@ -16,8 +16,12 @@ router.get('/:tagId', function(req, res, next) {
       include: [Pregunta]
   }).then( function(user) {
         var messageItsMe = '';
-        // TODO: distinguir si es mi perfil cuando estoy logueado
-        if( !(typeof req.user === "undefined") && user.idUsuario == req.user.id)
+        // por alguna razon res.locals.reqUser tiene el campo idUsuario en lugar del 'id' asignado en config/passport.js
+        // pareciera que me devuelve un JSON con los campos iguales a los de la BD
+        //console.log('ROUTE: /users/'+req.params.tagId);
+        //console.log(res.locals.reqUser);
+        //console.log(user.idUsuario);
+        if( res.locals.reqUser && user.idUsuario == res.locals.reqUser.idUsuario)
           messageItsMe = 'Its my profile!';
         res.render('userdetail', { user: user, itIsMe: messageItsMe  });
   }).catch(function(err){
