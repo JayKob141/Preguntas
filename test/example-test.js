@@ -18,6 +18,20 @@ test('De todos los usuarios: Sus preguntas', function(t) {
 
 });
 
+test('Busca un usuario por id', function(t) {
+	User.findOne({
+		  where:{idUsuario:1},
+			include: [Pregunta]
+	}).then( function(nicknames) {
+		console.log(JSON.stringify(nicknames));
+		t.end();
+	}).catch(function(err){
+		 t.end(err);
+	});
+
+});
+
+
 test('Todas las Preguntas con usuario y sus opciones', function(t) {
 	Pregunta.findAll({
   		attributes: ['pregunta'],

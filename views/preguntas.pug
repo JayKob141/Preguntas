@@ -21,7 +21,9 @@ block content
                       img(src='http://materializecss.com/images/office.jpg')
                     |
                     .card-content
-                      span.right.grey-text.text-darken-4 by #{pregunta.Usuario.nickname}
+                      span.right.grey-text.text-darken-4
+                        | by
+                        a(href=`users/`+pregunta.Usuario.idUsuario) #{pregunta.Usuario.nickname}
                       span.card-title.activator.grey-text.text-darken-4=pregunta.pregunta
                       |
                       ol(type='1')

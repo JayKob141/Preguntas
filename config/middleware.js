@@ -22,6 +22,9 @@ module.exports.isNotLoggedIn = function (req, res, next) {
 }
 
 module.exports.locals_variables = function(req, res, next) {
+  //console.log('locals_variables');
+  //console.log(req.user);
   res.locals.authed = req.isAuthenticated();
+  res.locals.reqUser = req.user;
   return next();
 }
