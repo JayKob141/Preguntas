@@ -12,4 +12,5 @@ DB_USER=user
 DB_PASS=password
 DB_DIALECT=mysql
 DB_HOST=localhost
+SESSION_SECRET=somerandomstring
 ```
