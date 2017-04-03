@@ -14,6 +14,7 @@ var locals_variables = middleware.locals_variables;
 var index = require('./routes/index');
 var users = require('./routes/users');
 var login = require('./routes/login');
+var signup = require('./routes/signup');
 var preguntas = require('./routes/preguntas');
 var logout = require('./routes/logout');
 
@@ -39,7 +40,8 @@ app.use(flash());
 
 app.use('/', locals_variables,index);
 app.use('/users',  locals_variables, users);
-app.use('/login',  middleware.isNotLoggedIn,   locals_variables, login);
+app.use('/login',  middleware.isNotLoggedIn, locals_variables, login);
+app.use('/signup',  middleware.isNotLoggedIn, locals_variables, signup);
 app.use('/preguntas',  locals_variables, preguntas);
 app.use('/logout', middleware.isLoggedIn, locals_variables, logout);
 
