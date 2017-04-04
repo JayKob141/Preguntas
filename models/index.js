@@ -9,6 +9,7 @@ var sequelize = new Sequelize( process.env.DB_NAME, process.env.DB_USER, process
   }
 });
 
+//TODO: Autoincrement idUsuario
 var User = sequelize.define('Usuarios', {
   idUsuario: { type: Sequelize.INTEGER, primaryKey: true },
   nickname: Sequelize.STRING,
