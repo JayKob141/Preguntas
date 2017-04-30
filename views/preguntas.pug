@@ -1,13 +1,22 @@
 extends layout
 
 block content
+  //- TODO: COLOCAR EL BOTON DE LOGUEO JUNTO CON EL DE SIGNUP.
   #index-banner.section.no-pad-bot
     .container
+      if authed
         .row.center
-          h5.header.col.s12.light Contesta preguntas.
+            h5.header.col.s12.light Contesta preguntas.
         |
         .row.center
           a#download-button.btn-large.waves-effect.waves-light.teal.lighten-1(href='#') Crear pregunta
+        |
+      else
+        .row.center
+            h5.header.col.s12.light Registrate para realizar/contestar preguntas.
+        |
+        .row.center
+          a#download-button.btn-large.waves-effect.waves-light.teal.lighten-1(href='/signup') Registrate
         |
         br
         br
