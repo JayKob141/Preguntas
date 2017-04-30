@@ -28,7 +28,21 @@ module.exports = function(passport) {
         passReqToCallback : true // allows us to pass back the entire request to the callback
     },
     function(req, nickname, password, done) {
-
+        var newUser = User.build(
+          {
+          nickname: nickname,
+          password: password,
+          fecha_registro: new Date()
+          }
+        );
+        newUser.save().then(function() {
+            var u = new Object();
+            u.id = newUser.idUsuario;
+            u.nickname = newUser.nickname;
+            return done(null, u);
+        }).catch(function(error) {
+            return done(error, null);
+        });
     }));
 
   passport.use('local-login', new LocalStrategy({
