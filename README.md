@@ -8,9 +8,10 @@ Crear un archivo .env en el directorio raiz del proyecto:
 
 ```dosini
 DB_NAME=dbname
-DB_USER=user
-DB_PASS=password
+DB_USER=root
+DB_PASS=example
 DB_DIALECT=mysql
-DB_HOST=localhost
+DB_HOST=ipaddress
 SESSION_SECRET=somerandomstring
+PORT=3000
 ```

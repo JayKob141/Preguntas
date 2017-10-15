@@ -1,0 +1,9 @@
+version: '2'
+services:
+  preguntasmysql:
+    image: mysql
+    restart: always
+    command: mysqld --sql_mode=""
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+    container_name: preguntasdb

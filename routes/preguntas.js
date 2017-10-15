@@ -12,11 +12,12 @@ router.get('/', function(req, res, next) {
       attributes: ['pregunta'],
       include: [{model:User}, {model:OpcionPregunta}]
   }).then( function(preguntas) {
-      //preguntas.forEach(function(item){
-        //console.log(item.get({plain:true}));
-      //});
+      // preguntas.forEach(function(item){
+      //   console.log(item.get({plain:true}));
+      // });
       res.render('preguntas', { preguntas: preguntas });
   }).catch(function(err){
+    // console.log(err)
     res.render('preguntas', { preguntas: [] });
   });
 
