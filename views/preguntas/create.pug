@@ -1,0 +1,23 @@
+extends ../layout
+
+block content
+    #modal1.modal
+      .modal-content
+        h4 Creando pregunta 
+        |     
+        p feedback a mostrar cuando se crea una nueva pregunta 
+      .modal-footer
+        a.modal-action.modal-close.waves-effect.waves-green.btn-flat(href='#!') OK 
+
+    #crear-pregunta-seccion
+        h1 {{message}}
+        p Pregunta:
+        input(type="text", name="pregunta")
+        p Posibles respuestas:
+            a#boton-agrega-opcion.btn-floating.btn-large.waves-effect.waves-light.red
+                i.material-icons add
+        respuesta-form(v-for="(item,index) in Opciones" v-bind:res="item" v-bind:index="index" v-bind:key="index")
+
+
+        a#crearPregunta.waves-effect.waves-light.btn Crear
+    script(src="/js/preguntas/create.js")

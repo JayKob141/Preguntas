@@ -39,3 +39,4 @@ jspm_packages
 run.sh
 public/stylesheets/app.css
 .env
+public/materialize
