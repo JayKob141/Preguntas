@@ -28,6 +28,7 @@ router.get('/create', function(req, res, next) {
 });
 
 router.post('/create', function(req, res, next) {
+	//TODO: Guardar la pregunta en la base de datos
 	console.log('ALTA DE PREGUNTA');
 	console.log(req.body);
 });
