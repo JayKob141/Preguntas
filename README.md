@@ -15,3 +15,8 @@ DB_HOST=ipaddress
 SESSION_SECRET=somerandomstring
 PORT=3000
 ```
+
+## Dependencias globales
+npm install -g browserify
+npm install -g watchify
+

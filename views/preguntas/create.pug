@@ -12,12 +12,11 @@ block content
     #crear-pregunta-seccion
         h1 {{message}}
         p Pregunta:
-        input(type="text", name="pregunta")
+        input(type="text", name="pregunta", id="preguntaInput")
         p Posibles respuestas:
             a#boton-agrega-opcion.btn-floating.btn-large.waves-effect.waves-light.red
                 i.material-icons add
         respuesta-form(v-for="(item,index) in Opciones" v-bind:res="item" v-bind:index="index" v-bind:key="index")
-
-
         a#crearPregunta.waves-effect.waves-light.btn Crear
+
     script(src="/js/preguntas/create.js")

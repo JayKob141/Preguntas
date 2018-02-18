@@ -6,7 +6,6 @@ var User = models.User;
 var OpcionPregunta = models.OpcionPregunta;
 
 
-/* GET users listing. */
 router.get('/', function(req, res, next) {
   Pregunta.findAll({
       attributes: ['pregunta'],
@@ -26,6 +25,11 @@ router.get('/', function(req, res, next) {
 
 router.get('/create', function(req, res, next) {
     res.render('preguntas/create');
+});
+
+router.post('/create', function(req, res, next) {
+	console.log('ALTA DE PREGUNTA');
+	console.log(req.body);
 });
 
 module.exports = router;
