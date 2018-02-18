@@ -8,6 +8,9 @@ gulp.task('styles',function(){
 		.pipe(sass())
 		.pipe(rename('app.css'))
 		.pipe(gulp.dest('public/stylesheets'));
+	gulp	
+		.src('node_modules/materialize-css/bin/materialize.*')
+		.pipe(gulp.dest('public/materialize'))
 });
 
 gulp.task('default', ['styles'])

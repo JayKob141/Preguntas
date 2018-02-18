@@ -6,7 +6,9 @@
     "start": "gulp && node ./bin/www",
     "test": "tape test/*-test.js | tap-spec",
     "queryusers": "tape test/db_queries/usuarios-test.js | tap-spec",
-    "insertuser": "tape test/db_queries/insert-delete-test.js | tap-spec"
+    "insertuser": "tape test/db_queries/insert-delete-test.js | tap-spec",
+	 "gulp": "gulp",
+	 "ejecuta": "node ./bin/www"
   },
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",

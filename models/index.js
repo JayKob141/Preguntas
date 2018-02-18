@@ -15,7 +15,7 @@ var User = sequelize.define('Usuarios', {
   idUsuario: { type: Sequelize.INTEGER, primaryKey: true },
   nickname: Sequelize.STRING,
   password: Sequelize.STRING,
-  fecha_registro: Sequelize.DATEONLY
+  fecha_registro: Sequelize.DATEONLY //TODO: CAMBIAR A TIMESTAMP
 },{
   timestamps: false,
   freezeTableName: true,
@@ -26,7 +26,7 @@ var User = sequelize.define('Usuarios', {
 var Pregunta = sequelize.define('Preguntas', {
   idPregunta: { type: Sequelize.INTEGER, primaryKey: true },
   pregunta: Sequelize.STRING,
-  fecha: Sequelize.DATEONLY,
+  fecha: Sequelize.DATEONLY, //TODO: CAMBIAR A TIMESTAMP
   userId: {
         type: Sequelize.INTEGER,
         references: {
