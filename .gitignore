@@ -40,3 +40,7 @@ run.sh
 public/stylesheets/app.css
 .env
 public/materialize
+
+#ARCHIVOS JS GENERADOS POR WATCHIFY
+public/js/preguntas/
+

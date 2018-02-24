@@ -15,8 +15,7 @@ var User = sequelize.define('Usuarios', {
   idUsuario: { type: Sequelize.INTEGER, primaryKey: true },
   nickname: Sequelize.STRING,
   password: Sequelize.STRING,
-  fecha_registro: Sequelize.DATEONLY //TODO: CAMBIAR A TIMESTAMP
-},{
+  fecha_registro: Sequelize.INTEGER, //TODO: CAMBIAR A TIMESTAM
   timestamps: false,
   freezeTableName: true,
   tableName: 'Usuarios',
@@ -24,9 +23,9 @@ var User = sequelize.define('Usuarios', {
 
 
 var Pregunta = sequelize.define('Preguntas', {
-  idPregunta: { type: Sequelize.INTEGER, primaryKey: true },
+	idPregunta: { type: Sequelize.INTEGER, primaryKey: true ,autoIncrement: true},
   pregunta: Sequelize.STRING,
-  fecha: Sequelize.DATEONLY, //TODO: CAMBIAR A TIMESTAMP
+  fecha: Sequelize.INTEGER, //TODO: CAMBIAR A TIMESTAMP
   userId: {
         type: Sequelize.INTEGER,
         references: {
@@ -41,7 +40,7 @@ var Pregunta = sequelize.define('Preguntas', {
 });
 
 var OpcionPregunta = sequelize.define('OpcionesPreguntas', {
-  idOpcion: { type: Sequelize.INTEGER, primaryKey: true },
+	idOpcion: { type: Sequelize.INTEGER, primaryKey: true , autoIncrement: true},
   descripcion: Sequelize.STRING,
   esCorrecta: Sequelize.INTEGER,
   preguntaId: {
@@ -65,3 +64,4 @@ Pregunta.hasMany(OpcionPregunta,{foreignKey:'preguntaId'});
 module.exports.User = User;
 module.exports.Pregunta = Pregunta;
 module.exports.OpcionPregunta = OpcionPregunta;
+module.exports.sequelize = sequelize;

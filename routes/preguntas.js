@@ -31,6 +31,22 @@ router.post('/create', function(req, res, next) {
 	//TODO: Guardar la pregunta en la base de datos
 	console.log('ALTA DE PREGUNTA');
 	console.log(req.body);
+	console.log('Usuario: ');
+	console.log(res.locals.reqUser.idUsuario);
+
+	/* ALTA DE PREGUNTA, asi viene el req.body
+	  { 
+	  pregunta: 'pregunta prueba',
+	  respuestas: [ 
+		  { respuesta: 'respuesta 1', correcta: false },
+		  { respuesta: 'respuesta 2', correcta: true } 
+	  ]
+	  }
+	*/
+
+   res.json({mensaje: "Se dio de alta la pregunta junto con sus opciones"});
+
 });
 
 module.exports = router;
+
