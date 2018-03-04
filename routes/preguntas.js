@@ -4,6 +4,7 @@ var models = require('../models');
 var Pregunta = models.Pregunta;
 var User = models.User;
 var OpcionPregunta = models.OpcionPregunta;
+var ModelMethods = require('../models/methods-preguntas');
 
 
 router.get('/', function(req, res, next) {
@@ -33,6 +34,7 @@ router.post('/create', function(req, res, next) {
 	console.log(req.body);
 	console.log('Usuario: ');
 	console.log(res.locals.reqUser.idUsuario);
+	idUsuario = res.locals.reqUser.idUsuario;
 
 	/* ALTA DE PREGUNTA, asi viene el req.body
 	  { 
@@ -43,8 +45,17 @@ router.post('/create', function(req, res, next) {
 	  ]
 	  }
 	*/
+	ModelMethods.insertaPreguntaConRespuestas( { pregunta: req.body.pregunta, userId: idUsuario }, req.body.respuestas )
+	.then(function (result) {
+	  // Transaction has been committed
+	  // result is whatever the result of the promise chain returned to the transaction callback
+	}).catch(function (err) {
+	  // Transaction has been rolled back
+	  // err is whatever rejected the promise chain returned to the transaction callback
+	});
 
-   res.json({mensaje: "Se dio de alta la pregunta junto con sus opciones"});
+
+   res.json({redirigir: true, mensaje: "Se dio de alta la pregunta junto con sus opciones"});
 
 });
 

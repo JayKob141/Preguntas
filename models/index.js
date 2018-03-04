@@ -16,6 +16,7 @@ var User = sequelize.define('Usuarios', {
   nickname: Sequelize.STRING,
   password: Sequelize.STRING,
   fecha_registro: Sequelize.INTEGER, //TODO: CAMBIAR A TIMESTAM
+},{
   timestamps: false,
   freezeTableName: true,
   tableName: 'Usuarios',

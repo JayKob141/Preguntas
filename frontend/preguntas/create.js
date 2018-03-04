@@ -65,13 +65,22 @@ $('#crearPregunta').on('click',function(){
 	 Respuestas.forEach(function(element){
 		console.log(element.respuesta);
 	 });
-    $('#modal1').modal('open');
+
+	 
 
 	  axios.post('create', {
 		  pregunta: $("#preguntaInput").val(), 
 		  respuestas: Respuestas} 
 	  ).then(function (response) {
+
+		 $('#modal1').modal('open');
 		 console.log(response);
+			$("#modal1 .modal-action").on('click', function(e){
+				e.preventDefault();
+				window.location.href  = '/preguntas';
+				return true;
+			});
+
 	  }).catch(function (error) {
 		 console.log(error);
 	  });
