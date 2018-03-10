@@ -1,6 +1,13 @@
 extends layout
 
 block content
+  #modalFeedbackOpcionPregunta.modal
+     .modal-content
+       h4 Contestando pregunta 
+       |     
+       p#texto-feedback 
+     .modal-footer
+          a.modal-action.modal-close.waves-effect.waves-green.btn-flat(href='#!') OK 
   //- TODO: COLOCAR EL BOTON DE LOGUEO JUNTO CON EL DE SIGNUP.
   #index-banner.section.no-pad-bot
     .container
@@ -31,18 +38,18 @@ block content
                     |
                     .card-content
                       span.right.grey-text.text-darken-4
-                        | by
+                        | by 
                         a(href=`users/`+pregunta.Usuario.idUsuario) #{pregunta.Usuario.nickname}
                       span.card-title.activator.grey-text.text-darken-4=pregunta.pregunta
-                      |
-                      ol(type='1')
-                        each opcion in pregunta.OpcionesPreguntas
-                          li #{opcion.descripcion}
                     |
                     .card-action
-                      a(href='#') Contestar
+                      ol(type='1')
+                        each opcion in pregunta.OpcionesPreguntas
+                           li
+                              a.boton-opcion-pregunta(href='#', data-correcta=opcion.esCorrecta) #{opcion.descripcion}
     br
     br
     br
     br
     br
+    script(src="/js/preguntas/index.js")

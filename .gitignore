@@ -41,6 +41,8 @@ public/stylesheets/app.css
 .env
 public/materialize
 
+notas.txt
+
 #ARCHIVOS JS GENERADOS POR WATCHIFY
 public/js/preguntas/
 
